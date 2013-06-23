@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>foundation</artifactId>
-    <version>4.0.5-SNAPSHOT</version>
+    <version>4.2.2-SNAPSHOT</version>
     <name>Foundation</name>
     <description>WebJar for Foundation</description>
     <url>http://webjars.org</url>
@@ -37,12 +37,17 @@
             <name>James Ward</name>
             <email>james@jamesward.org</email>
         </developer>
+        <developer>
+            <id>zackarychapple</id>
+            <name>Zakary Chapple</name>
+            <email>zackarychapple30@gmail.com</email>
+        </developer>
     </developers>
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>4.0.4</upstreamVersion>
-        <sourceUrl>http://foundation.zurb.com/files</sourceUrl>
+        <upstreamVersion>4.2.2</upstreamVersion>
+        <sourceUrl>https://github.com/zurb/foundation/archive</sourceUrl>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
     </properties>
     
@@ -58,7 +63,7 @@
                         <goals><goal>download-single</goal></goals>
                         <configuration>
                             <url>${sourceUrl}</url>
-                            <fromFile>foundation-${upstreamVersion}.zip</fromFile>
+                            <fromFile>v${upstreamVersion}.zip</fromFile>
                             <toFile>${project.build.directory}/${project.artifactId}.zip</toFile>
                         </configuration>
                     </execution>
