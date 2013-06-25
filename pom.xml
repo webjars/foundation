@@ -83,7 +83,7 @@
                                 <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}/foundation" />
                                 <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/foundation" />
+                                    <fileset dir="${project.build.directory}/foundation/foundation-${upstreamVersion}" excludes="js/vendor/"/>
                                 </move>
                             </target>
                         </configuration>
