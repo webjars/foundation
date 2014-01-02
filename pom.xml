@@ -42,13 +42,26 @@
             <name>Zakary Chapple</name>
             <email>zackarychapple30@gmail.com</email>
         </developer>
+        <developer>
+            <id>dhruvbhatia</id>
+            <name>Dhruv Bhatia</name>
+            <email>dhruv@dhruvbhatia.com</email>
+        </developer>
     </developers>
     
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>5.0.2</upstreamVersion>
-        <sourceUrl>https://github.com/zurb/foundation/archive</sourceUrl>
-        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
+        <property>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <upstreamVersion>5.0.2</upstreamVersion>
+            <sourceUrl>https://github.com/zurb/foundation/archive</sourceUrl>
+            <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
+        </property>
+        <property>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <upstreamVersion>5.0.2</upstreamVersion>
+            <sourceUrl>http://foundation.zurb.com/cdn/releases</sourceUrl>
+            <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
+        </property>
     </properties>
     
     <build>
@@ -83,7 +96,7 @@
                                 <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}/foundation" />
                                 <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/foundation/foundation-${upstreamVersion}" excludes="js/vendor/" includes="js/,scss/" />
+                                    <fileset dir="${project.build.directory}/foundation/foundation-${upstreamVersion}" excludes="js/vendor/" includes="js/,scss/,css/" />
                                 </move>
                             </target>
                         </configuration>
