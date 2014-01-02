@@ -50,18 +50,11 @@
     </developers>
     
     <properties>
-        <property>
-            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-            <upstreamVersion>5.0.2</upstreamVersion>
-            <sourceUrl>https://github.com/zurb/foundation/archive</sourceUrl>
-            <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
-        </property>
-        <property>
-            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-            <upstreamVersion>5.0.2</upstreamVersion>
-            <sourceUrl>http://foundation.zurb.com/cdn/releases</sourceUrl>
-            <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
-        </property>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <upstreamVersion>5.0.2</upstreamVersion>
+        <sourceUrl>https://github.com/zurb/foundation/archive</sourceUrl>
+        <releaseUrl>http://foundation.zurb.com/cdn/releases</releaseUrl>
+        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
     </properties>
     
     <build>
@@ -73,11 +66,22 @@
                 <executions>
                     <execution>
                         <phase>process-resources</phase>
+                        <id>source-files</id>
                         <goals><goal>download-single</goal></goals>
                         <configuration>
                             <url>${sourceUrl}</url>
                             <fromFile>v${upstreamVersion}.zip</fromFile>
-                            <toFile>${project.build.directory}/${project.artifactId}.zip</toFile>
+                            <toFile>${project.build.directory}/${project.artifactId}-${upstreamVersion}-source.zip</toFile>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <phase>process-resources</phase>
+                        <id>release-files</id>
+                        <goals><goal>download-single</goal></goals>
+                        <configuration>
+                            <url>${releaseUrl}</url>
+                            <fromFile>foundation-${upstreamVersion}.zip</fromFile>
+                            <toFile>${project.build.directory}/${project.artifactId}-${upstreamVersion}-release.zip</toFile>
                         </configuration>
                     </execution>
                 </executions>
@@ -87,20 +91,39 @@
                 <artifactId>maven-antrun-plugin</artifactId>
                 <version>1.7</version>
                 <executions>
+
                     <execution>
                         <phase>process-resources</phase>
+                        <id>source-files</id>
                         <goals><goal>run</goal></goals>
                         <configuration>
                             <target>
                                 <echo message="unzip archive" />
-                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}/foundation" />
+                                <unzip src="${project.build.directory}/${project.artifactId}-${upstreamVersion}-source.zip" dest="${project.build.directory}/foundation" />
                                 <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/foundation/foundation-${upstreamVersion}" excludes="js/vendor/" includes="js/,scss/,css/" />
+                                    <fileset dir="${project.build.directory}/foundation/foundation-${upstreamVersion}" includes="js/,css/,scss/,img/" />
                                 </move>
                             </target>
                         </configuration>
                     </execution>
+
+                    <execution>
+                        <phase>process-resources</phase>
+                        <id>release-files</id>
+                        <goals><goal>run</goal></goals>
+                        <configuration>
+                            <target>
+                                <echo message="unzip archive" />
+                                <unzip src="${project.build.directory}/${project.artifactId}-${upstreamVersion}-release.zip" dest="${project.build.directory}/foundation" />
+                                <echo message="moving resources" />
+                                <move todir="${destDir}">
+                                    <fileset dir="${project.build.directory}/foundation" includes="js/,css/,scss/,img/" />
+                                </move>
+                            </target>
+                        </configuration>
+                    </execution>
+
                 </executions>
             </plugin>
             <plugin>
