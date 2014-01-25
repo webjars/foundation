@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>foundation</artifactId>
-    <version>5.0.3</version>
+    <version>5.0.4-SNAPSHOT</version>
     <name>Foundation</name>
     <description>WebJar for Foundation</description>
     <url>http://webjars.org</url>
@@ -28,7 +28,7 @@
         <url>http://github.com/webjars/foundation</url>
         <connection>scm:git:https://github.com/webjars/foundation.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/foundation.git</developerConnection>
-        <tag>foundation-5.0.3</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <developers>
