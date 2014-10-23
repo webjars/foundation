@@ -93,7 +93,49 @@
         <upstreamTag>5.4.5</upstreamTag>
         <sourceUrl>https://github.com/zurb/foundation/archive</sourceUrl>
         <releaseUrl>http://foundation.zurb.com/cdn/releases</releaseUrl>
-        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
+        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${version}</destDir>
+        <requirejs>{
+            "paths": {
+                "foundation-all": "js/foundation.min",
+                "foundation-core": "js/foundation/foundation",
+                "foundation-abide": "js/foundation/foundation.abide",
+                "foundation-accordion": "js/foundation/foundation.accordion",
+                "foundation-alert": "js/foundation/foundation.alert",
+                "foundation-clearing": "js/foundation/foundation.clearing",
+                "foundation-dropdown": "js/foundation/foundation.dropdown",
+                "foundation-equalizer": "js/foundation/foundation.equalizer",
+                "foundation-interchange": "js/foundation/foundation.interchange",
+                "foundation-joyride": "js/foundation/foundation.joyride",
+                "foundation-magellan": "js/foundation/foundation.magellan",
+                "foundation-offcanvas": "js/foundation/foundation.offcanvas",
+                "foundation-orbit": "js/foundation/foundation.orbit",
+                "foundation-reveal": "js/foundation/foundation.reveal",
+                "foundation-slider": "js/foundation/foundation.slider",
+                "foundation-tab": "js/foundation/foundation.tab",
+                "foundation-tooltip": "js/foundation/foundation.tooltip",
+                "foundation-topbar": "js/foundation/foundation.topbar"
+            },
+            "shim": {
+                "foundation-all": ["jquery","fastclick"],
+                "foundation-core": ["jquery","fastclick"],
+                "foundation-abide": ["foundation-core"],
+                "foundation-accordion": ["foundation-core"],
+                "foundation-alert": ["foundation-core"],
+                "foundation-clearing": ["foundation-core"],
+                "foundation-dropdown": ["foundation-core"],
+                "foundation-equalizer": ["foundation-core"],
+                "foundation-interchange": ["foundation-core"],
+                "foundation-joyride": ["foundation-core","jquery-cookie"],
+                "foundation-magellan": ["foundation-core"],
+                "foundation-offcanvas": ["foundation-core"],
+                "foundation-orbit": ["foundation-core"],
+                "foundation-reveal": ["foundation-core"],
+                "foundation-slider": ["foundation-core"],
+                "foundation-tab": ["foundation-core"],
+                "foundation-tooltip": ["foundation-core"],
+                "foundation-topbar": ["foundation-core"]
+            }
+        }</requirejs>
     </properties>
     
     <build>
