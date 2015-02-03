@@ -89,8 +89,8 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>5.5.0</upstreamVersion>
-        <upstreamTag>5.5.0</upstreamTag>
+        <upstreamVersion>5.5.1</upstreamVersion>
+        <upstreamTag>5.5.1</upstreamTag>
         <sourceUrl>https://github.com/zurb/foundation/archive</sourceUrl>
         <releaseUrl>http://foundation.zurb.com/cdn/releases</releaseUrl>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
