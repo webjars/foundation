@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>foundation</artifactId>
-    <version>5.5.2-SNAPSHOT</version>
+    <version>5.5.2</version>
     <name>Foundation</name>
     <description>WebJar for Foundation</description>
     <url>http://webjars.org</url>
@@ -28,7 +28,7 @@
         <url>http://github.com/webjars/foundation</url>
         <connection>scm:git:https://github.com/webjars/foundation.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/foundation.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>foundation-5.5.2</tag>
     </scm>
 
     <developers>
@@ -179,11 +179,11 @@
                         <goals><goal>run</goal></goals>
                         <configuration>
                             <target>
-                                <echo message="unzip archive"/>
-                                <unzip src="${project.build.directory}/${project.artifactId}-${upstreamVersion}-source.zip" dest="${project.build.directory}/foundation"/>
-                                <echo message="moving resources"/>
+                                <echo message="unzip archive" />
+                                <unzip src="${project.build.directory}/${project.artifactId}-${upstreamVersion}-source.zip" dest="${project.build.directory}/foundation" />
+                                <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/foundation/foundation-${upstreamTag}" includes="js/,css/,scss/,img/" excludes="js/vendor/,scss/normalize.scss"/>
+                                    <fileset dir="${project.build.directory}/foundation/foundation-${upstreamTag}" includes="js/,css/,scss/,img/" excludes="js/vendor/,scss/normalize.scss" />
                                 </move>
                             </target>
                         </configuration>
@@ -195,11 +195,11 @@
                         <goals><goal>run</goal></goals>
                         <configuration>
                             <target>
-                                <echo message="unzip archive"/>
-                                <unzip src="${project.build.directory}/${project.artifactId}-${upstreamVersion}-release.zip" dest="${project.build.directory}/foundation"/>
-                                <echo message="moving resources"/>
+                                <echo message="unzip archive" />
+                                <unzip src="${project.build.directory}/${project.artifactId}-${upstreamVersion}-release.zip" dest="${project.build.directory}/foundation" />
+                                <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/foundation" includes="js/,css/,scss/,img/" excludes="js/vendor/,js/jquery.js,js/modernizr.js,css/normalize.css"/>
+                                    <fileset dir="${project.build.directory}/foundation" includes="js/,css/,scss/,img/" excludes="js/vendor/,js/jquery.js,js/modernizr.js,css/normalize.css" />
                                 </move>
                             </target>
                         </configuration>
