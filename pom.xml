@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>foundation</artifactId>
-    <version>5.5.3-SNAPSHOT</version>
+    <version>4.3.2-SNAPSHOT</version>
     <name>Foundation</name>
     <description>WebJar for Foundation</description>
     <url>http://webjars.org</url>
@@ -89,8 +89,8 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>5.5.2</upstreamVersion>
-        <upstreamTag>5.5.2</upstreamTag>
+        <upstreamVersion>4.3.2</upstreamVersion>
+        <upstreamTag>4.3.2</upstreamTag>
         <sourceUrl>https://github.com/zurb/foundation/archive</sourceUrl>
         <releaseUrl>http://foundation.zurb.com/cdn/releases</releaseUrl>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
