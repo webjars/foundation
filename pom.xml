@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>foundation</artifactId>
-    <version>6.0.3-SNAPSHOT</version>
+    <version>6.0.3</version>
     <name>Foundation</name>
     <description>WebJar for Foundation</description>
     <url>http://webjars.org</url>
@@ -28,7 +28,7 @@
         <url>http://github.com/webjars/foundation</url>
         <connection>scm:git:https://github.com/webjars/foundation.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/foundation.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>foundation-6.0.3</tag>
     </scm>
 
     <developers>
@@ -149,13 +149,13 @@
                         <goals><goal>run</goal></goals>
                         <configuration>
                             <target>
-                                <echo message="download archive"/>
-                                <get src="${upstream.url}" dest="${project.build.directory}/${project.artifactId}.zip"/>
+                                <echo message="download archive" />
+                                <get src="${upstream.url}" dest="${project.build.directory}/${project.artifactId}.zip" />
                                 <echo message="unzip archive" />
                                 <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
                                 <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/foundation-sites-${upstreamVersion}" includes="dist/ scss/ js/"/>
+                                    <fileset dir="${project.build.directory}/foundation-sites-${upstreamVersion}" includes="dist/ scss/ js/" />
                                 </move>
                             </target>
                         </configuration>
